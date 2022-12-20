@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="robotiq_hande_transmission" params="prefix">
+
+    <transmission name="${prefix}finger_1_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${prefix}finger_1_joint">
+        <hardwareInterface>PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${prefix}finger_1_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+        <hardwareInterface>PositionJointInterface</hardwareInterface>
+      </actuator>
+    </transmission>
+
+  </xacro:macro>
+
+</robot>
