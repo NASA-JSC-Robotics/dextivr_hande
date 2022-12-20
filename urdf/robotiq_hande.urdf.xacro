@@ -54,17 +54,22 @@
         <inertia ixx="13567E-9" ixy="1849E-9" ixz="-3622E-9" iyy="15784E-9" iyz="-3616E-9" izz="7478E-9"/>
       </inertial>
       <visual>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
-        <geometry>
-          <mesh filename="package://robotiq_hande_description/meshes/finger_2.dae" scale="0.001 0.001 0.001"/>
-        </geometry>
-        <material name="${prefix}dark_gray"/>
+        <xacro:if value="${jaw_xacro_prop == 'standard'}" >
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+          <geometry>
+            <mesh filename="package://robotiq_hande_description/meshes/finger_2.dae" scale="0.001 0.001 0.001"/>
+          </geometry>
+          <material name="${prefix}dark_gray"/>
+        </xacro:if>
       </visual>
       <collision>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
-        <geometry>
-          <mesh filename="package://robotiq_hande_description/meshes/finger_2.dae" scale="0.001 0.001 0.001"/>
-        </geometry>
+        <xacro:if value="${jaw_xacro_prop == 'standard'}" >
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+          <geometry>
+            <mesh filename="package://robotiq_hande_description/meshes/finger_2.dae" scale="0.001 0.001 0.001"/>
+          </geometry>
+          <material name="${prefix}dark_gray"/>
+        </xacro:if>
       </collision>
     </link>
 
@@ -75,17 +80,22 @@
         <inertia ixx="13567E-9" ixy="1849E-9" ixz="3622E-9" iyy="15784E-9" iyz="3616E-9" izz="7478E-9"/>
       </inertial>
       <visual>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
-        <geometry>
-          <mesh filename="package://robotiq_hande_description/meshes/finger_1.dae" scale="0.001 0.001 0.001"/>
-        </geometry>
-        <material name="${prefix}dark_gray"/>
+        <xacro:if value="${jaw_xacro_prop == 'standard'}" >
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+          <geometry>
+            <mesh filename="package://robotiq_hande_description/meshes/finger_1.dae" scale="0.001 0.001 0.001"/>
+          </geometry>
+          <material name="${prefix}dark_gray"/>
+        </xacro:if>
       </visual>
       <collision>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
-        <geometry>
-          <mesh filename="package://robotiq_hande_description/meshes/finger_1.dae" scale="0.001 0.001 0.001"/>
-        </geometry>
+        <xacro:if value="${jaw_xacro_prop == 'standard'}" >
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+          <geometry>
+            <mesh filename="package://robotiq_hande_description/meshes/finger_1.dae" scale="0.001 0.001 0.001"/>
+          </geometry>
+          <material name="${prefix}dark_gray"/>
+        </xacro:if>
       </collision>
     </link>
 
