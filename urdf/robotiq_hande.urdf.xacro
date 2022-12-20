@@ -3,8 +3,8 @@
   <xacro:arg name="jaw_xacro" default="standard" />
   <xacro:arg name="use_fake_hardware" default="false" />
   <xacro:property name="jaw_xacro_prop" value="$(arg jaw_xacro)" />
-  <!--<xacro:include filename="$(find robotiq_hande_description)/urdf/robotiq_hande_transmission.xacro"/>
-  <xacro:include filename="$(find robotiq_hande_description)/urdf/robotiq_hande_ros2_control.xacro"/>-->
+  <xacro:include filename="$(find robotiq_hande_description)/urdf/robotiq_hande_transmission.xacro"/>
+  <xacro:include filename="$(find robotiq_hande_description)/urdf/robotiq_hande_ros2_control.xacro"/>
 
   <xacro:macro name="robotiq_hande" params="
     name
@@ -172,12 +172,10 @@
       </xacro:if>
     </joint>
 
-    <!--
     <xacro:robotiq_hande_transmission prefix="${prefix}"/>
     <xacro:if value="$(arg use_fake_hardware)">
       <xacro:robotiq_hande_ros2_control name="robotiq_hande_ros2_control" prefix="${prefix}" use_fake_hardware="$(arg use_fake_hardware)"/>
     </xacro:if>
-    -->
 
   </xacro:macro>
 </robot>
