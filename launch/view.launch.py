@@ -49,7 +49,7 @@ def generate_launch_description():
         [
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
-            PathJoinSubstitution([FindPackageShare("robotiq_hande_description"), "urdf", "robotiq_hande.urdf"]),
+            PathJoinSubstitution([FindPackageShare("robotiq_hande_description"), "urdf", "robotiq_hande.xacro"]),
             " ",
             "jaw_xacro:=",
             jaw_type,

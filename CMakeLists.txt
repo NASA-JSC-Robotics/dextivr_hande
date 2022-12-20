@@ -1,21 +1,24 @@
 cmake_minimum_required(VERSION 3.5)
 project(robotiq_hande_description)
 
-if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
+find_package(ament_cmake)
+
+if(ament_cmake_FOUND)
+
+  install(
+    DIRECTORY launch meshes rviz urdf
+    DESTINATION share/${PROJECT_NAME}
+  )
+
+  ament_export_dependencies(${THIS_PACKAGE_INCLUDE_DEPENDS})
+
+  ament_package()
+
+else()
+
+  find_package(catkin REQUIRED)
+  catkin_package()
+  install(DIRECTORY launch meshes rviz urdf
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  )
 endif()
-
-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
-endif()
-
-find_package(ament_cmake REQUIRED)
-find_package(urdf REQUIRED)
-
-install(DIRECTORY launch meshes urdf rviz
-  DESTINATION share/${PROJECT_NAME}
-)
-
-ament_export_dependencies(xacro)
-ament_export_dependencies(urdf)
-ament_package()

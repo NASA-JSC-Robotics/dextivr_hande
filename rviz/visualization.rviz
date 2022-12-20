@@ -67,21 +67,25 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        hande_left_finger:
+        finger_1_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        hande_right_finger:
+        finger_2_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        hande_robotiq_hande_base_link:
+        gripper_base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        world:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Name: RobotModel
       TF Prefix: ""
       Update Interval: 0
@@ -90,7 +94,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: hande_robotiq_hande_base_link
+    Fixed Frame: gripper_base_link
     Frame Rate: 30
   Name: root
   Tools:

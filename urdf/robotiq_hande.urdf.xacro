@@ -12,11 +12,11 @@
     parent
     *origin">
 
-    <material name="${prefix}_dark_gray">
+    <material name="${prefix}dark_gray">
       <color rgba="0.2 0.2 0.2 1"/>
     </material>
 
-    <material name="${prefix}_black">
+    <material name="${prefix}black">
       <color rgba="0 0 0 1"/>
     </material>
 
@@ -37,7 +37,7 @@
         <geometry>
           <mesh filename="package://robotiq_hande_description/meshes/hand-e.dae" scale="0.001 0.001 0.001"/>
         </geometry>
-        <material name="${prefix}_black"/>
+        <material name="${prefix}black"/>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -58,7 +58,7 @@
         <geometry>
           <mesh filename="package://robotiq_hande_description/meshes/finger_2.dae" scale="0.001 0.001 0.001"/>
         </geometry>
-        <material name="${prefix}_dark_gray"/>
+        <material name="${prefix}dark_gray"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -79,7 +79,7 @@
         <geometry>
           <mesh filename="package://robotiq_hande_description/meshes/finger_1.dae" scale="0.001 0.001 0.001"/>
         </geometry>
-        <material name="${prefix}_dark_gray"/>
+        <material name="${prefix}dark_gray"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -95,7 +95,6 @@
       <child link="${prefix}finger_1_link"/>
       <axis xyz="1 0 0"/>
       <limit effort="130" lower="0" upper="0.025" velocity="0.15"/>
-      <mimic joint="${prefix}joint_finger" multiplier="1" offset="0"/>
     </joint>
 
     <joint name="${prefix}finger_2_joint" type="prismatic">
@@ -104,6 +103,7 @@
       <child link="${prefix}finger_2_link"/>
       <axis xyz="-1 0 0"/>
       <limit effort="130" lower="0" upper="0.025" velocity="0.15"/>
+      <mimic joint="${prefix}finger_1_joint" multiplier="1" offset="0"/>
     </joint>
 
   </xacro:macro>
