@@ -44,6 +44,7 @@
         <geometry>
           <mesh filename="package://robotiq_hande_description/meshes/hand-e.dae" scale="0.001 0.001 0.001"/>
         </geometry>
+        <material name="${prefix}black"/>
       </collision>
     </link>
 
@@ -57,7 +58,7 @@
         <xacro:if value="${jaw_xacro_prop == 'standard'}" >
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://robotiq_hande_description/meshes/finger_2.dae" scale="0.001 0.001 0.001"/>
+            <mesh filename="package://robotiq_hande_description/meshes/finger_2.stl" scale="0.001 0.001 0.001"/>
           </geometry>
           <material name="${prefix}dark_gray"/>
         </xacro:if>
@@ -66,7 +67,7 @@
         <xacro:if value="${jaw_xacro_prop == 'standard'}" >
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://robotiq_hande_description/meshes/finger_2.dae" scale="0.001 0.001 0.001"/>
+            <mesh filename="package://robotiq_hande_description/meshes/finger_2.stl" scale="0.001 0.001 0.001"/>
           </geometry>
           <material name="${prefix}dark_gray"/>
         </xacro:if>
@@ -83,7 +84,7 @@
         <xacro:if value="${jaw_xacro_prop == 'standard'}" >
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://robotiq_hande_description/meshes/finger_1.dae" scale="0.001 0.001 0.001"/>
+            <mesh filename="package://robotiq_hande_description/meshes/finger_1.stl" scale="0.001 0.001 0.001"/>
           </geometry>
           <material name="${prefix}dark_gray"/>
         </xacro:if>
@@ -92,7 +93,7 @@
         <xacro:if value="${jaw_xacro_prop == 'standard'}" >
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://robotiq_hande_description/meshes/finger_1.dae" scale="0.001 0.001 0.001"/>
+            <mesh filename="package://robotiq_hande_description/meshes/finger_1.stl" scale="0.001 0.001 0.001"/>
           </geometry>
           <material name="${prefix}dark_gray"/>
         </xacro:if>
