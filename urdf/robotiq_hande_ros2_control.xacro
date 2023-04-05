@@ -5,7 +5,7 @@
       prefix
       use_fake_hardware:=false
       fake_sensor_commands:=false
-      com_port:=/dev/ttyUSB0">
+      com_port:=/dev/ttyUSB1">
 
     <ros2_control name="${name}" type="system">
       <hardware>
@@ -32,12 +32,12 @@
       </joint>
 
       <!-- Only add this with fake hardware mode -->
-      <xacro:command_interface value="${use_fake_hardware}">
+      <xacro:if value="${use_fake_hardware}">
           <gpio name="reactivate_gripper">
               <command_interface name="reactivate_gripper_cmd" />
               <command_interface name="reactivate_gripper_response" />
           </gpio>
-      </xacroif>
+      </xacro:if>
 
     </ros2_control>
   </xacro:macro>
