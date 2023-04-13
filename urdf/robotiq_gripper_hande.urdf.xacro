@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <robot xmlns:xacro="http://wiki.ros.org/xacro" name="robotiq_hande">
-  <xacro:arg name="name" default="robotiq_hande"/>
+  <xacro:arg name="name" default="RobotiqGripperHandeHardwareInterface"/>
   <xacro:arg name="prefix" default="" />
   <xacro:arg name="jaw_xacro" default="standard" />
   <xacro:arg name="use_fake_hardware" default="false" />

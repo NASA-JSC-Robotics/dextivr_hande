@@ -3,7 +3,7 @@
   <xacro:macro name="robotiq_hande_ros2_control" params="
       name:=robotiq
       prefix
-      use_fake_hardware:=false
+      use_fake_hardware:=true
       fake_sensor_commands:=false
       com_port:=/dev/ttyUSB1">
 
@@ -23,12 +23,12 @@
 
       <joint name="${prefix}finger_1_joint">
         <param name="initial_position">0.00</param>
-        <command_interface name="position">
-          <param name="min">0.00</param>
+        <command_interface name="position"/>
+        <!--   <param name="min">0.00</param>
           <param name="max">0.05</param>
-        </command_interface>
+        </command_interface> -->
         <state_interface name="position">
-            <param name="initial_value">0.0</param>
+          <param name="initial_value">0.0</param>
         </state_interface>
         <state_interface name="velocity"/>
       </joint>
