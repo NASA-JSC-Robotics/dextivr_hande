@@ -3,8 +3,8 @@
   <xacro:arg name="jaw_xacro" default="standard" />
   <xacro:arg name="use_fake_hardware" default="false" />
   <xacro:property name="jaw_xacro_prop" value="$(arg jaw_xacro)" />
-  <xacro:property name="finger_length" default="0.060" />
-  <xacro:property name="push_marker_length" default="0.015" />
+  <xacro:property name="finger_length" default="0.0605" />
+  <xacro:property name="push_marker_size" default="0.01" />
   <xacro:property name="marker_opacity" default="0.25" />
   <xacro:include filename="$(find robotiq_hande_description)/urdf/robotiq_hande_transmission.xacro"/>
   <xacro:include filename="$(find robotiq_hande_description)/urdf/robotiq_hande.ros2_control.xacro"/>
@@ -154,8 +154,9 @@
 
     <link name="${prefix}push_frame_1">
       <visual>
+        <origin xyz="0.0 ${push_marker_size / 8} 0.0" rpy="0 0 0"/>
         <geometry>
-          <box size="${push_marker_length / 4} ${push_marker_length} ${push_marker_length / 4}"/>
+          <box size="${push_marker_size} ${push_marker_size / 4} ${push_marker_size}"/>
         </geometry>
         <material name="${prefix}_red">
           <color rgba="1.0 0 0 ${marker_opacity}"/>
@@ -167,14 +168,15 @@
       <parent link="${prefix}finger_1_link"/>
       <child link="${prefix}push_frame_1"/>
       <xacro:if value="${jaw_xacro_prop == 'standard'}" >
-        <origin xyz="0.002 ${finger_length + push_marker_length / 2} -${push_marker_length / 4}" rpy="0 0 0"/>
+        <origin xyz="0.002 ${finger_length} -0.003" rpy="0 0 0"/>
       </xacro:if>
     </joint>
 
     <link name="${prefix}push_frame_2">
       <visual>
+        <origin xyz="0.0 ${push_marker_size / 8} 0.0" rpy="0 0 0"/>
         <geometry>
-          <box size="${push_marker_length / 4} ${push_marker_length} ${push_marker_length / 4}"/>
+          <box size="${push_marker_size} ${push_marker_size / 4} ${push_marker_size}"/>
         </geometry>
         <material name="${prefix}_red">
           <color rgba="1.0 0 0 ${marker_opacity}"/>
@@ -186,7 +188,7 @@
       <parent link="${prefix}finger_2_link"/>
       <child link="${prefix}push_frame_2"/>
       <xacro:if value="${jaw_xacro_prop == 'standard'}" >
-        <origin xyz="0.002 ${finger_length + push_marker_length / 2} -${push_marker_length / 4}" rpy="0 0 0"/>
+        <origin xyz="0.002 ${finger_length} -0.003" rpy="0 0 0"/>
       </xacro:if>
     </joint>
 
