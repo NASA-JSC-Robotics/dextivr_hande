@@ -145,7 +145,7 @@
       <parent link="${prefix}gripper_base_link"/>
       <child link="${prefix}grasp_frame"/>
       <xacro:if value="${jaw_xacro_prop == 'standard'}" >
-        <origin xyz="0.0 0.0 0.135" rpy="0 0 0"/>
+        <origin xyz="0.0 0.0 0.148" rpy="0 0 0"/>
       </xacro:if>
     </joint>
 
@@ -164,7 +164,7 @@
       <parent link="${prefix}gripper_base_link"/>
       <child link="${prefix}push_frame"/>
       <xacro:if value="${jaw_xacro_prop == 'standard'}" >
-        <origin xyz="0.0 0.0 0.147" rpy="0 0 0"/>
+        <origin xyz="0.0 0.0 0.16" rpy="0 0 0"/>
       </xacro:if>
     </joint>
 
