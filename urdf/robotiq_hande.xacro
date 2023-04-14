@@ -71,7 +71,7 @@
         <xacro:if value="${jaw_xacro_prop == 'standard'}" >
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://robotiq_hande_description/meshes/finger_2.stl" scale="0.001 0.001 0.001"/>
+            <mesh filename="package://robotiq_hande_description/meshes/hande_fngr_nail_v2.stl" />
           </geometry>
           <material name="${prefix}dark_gray"/>
         </xacro:if>
@@ -80,7 +80,7 @@
         <xacro:if value="${jaw_xacro_prop == 'standard'}" >
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://robotiq_hande_description/meshes/finger_2.stl" scale="0.001 0.001 0.001"/>
+            <mesh filename="package://robotiq_hande_description/meshes/hande_fngr_nail_v2.stl"/>
           </geometry>
           <material name="${prefix}dark_gray"/>
         </xacro:if>
@@ -97,7 +97,7 @@
         <xacro:if value="${jaw_xacro_prop == 'standard'}" >
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://robotiq_hande_description/meshes/finger_1.stl" scale="0.001 0.001 0.001"/>
+            <mesh filename="package://robotiq_hande_description/meshes/hande_fngr_nail_v2.stl"/>
           </geometry>
           <material name="${prefix}dark_gray"/>
         </xacro:if>
@@ -106,7 +106,7 @@
         <xacro:if value="${jaw_xacro_prop == 'standard'}" >
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://robotiq_hande_description/meshes/finger_1.stl" scale="0.001 0.001 0.001"/>
+            <mesh filename="package://robotiq_hande_description/meshes/hande_fngr_nail_v2.stl"/>
           </geometry>
           <material name="${prefix}dark_gray"/>
         </xacro:if>
@@ -114,15 +114,15 @@
     </link>
 
     <joint name="${prefix}finger_1_joint" type="prismatic">
-      <origin rpy="0 0 0" xyz="${max_finger_distance / 2} 0 0.099"/>
+      <origin rpy="${pi/2} 0 0" xyz="0 -0.003 0.099"/>
       <parent link="${prefix}gripper_base_link"/>
       <child link="${prefix}finger_1_link"/>
-      <axis xyz="-1 0 0"/>
+      <axis xyz="1 0 0"/>
       <limit effort="130" lower="0" upper="0.025" velocity="0.15"/>
     </joint>
 
     <joint name="${prefix}finger_2_joint" type="prismatic">
-      <origin rpy="0 0 0" xyz="${-max_finger_distance / 2}  0 0.099"/>
+      <origin rpy="${pi/2} 0 ${pi}" xyz="0 0.003 0.099"/>
       <parent link="${prefix}gripper_base_link"/>
       <child link="${prefix}finger_2_link"/>
       <axis xyz="1 0 0"/>
