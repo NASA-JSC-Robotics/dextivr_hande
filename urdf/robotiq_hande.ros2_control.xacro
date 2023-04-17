@@ -13,7 +13,7 @@
           <plugin>fake_components/GenericSystem</plugin>
         </xacro:if>
         <xacro:unless value="${use_fake_hardware}">
-            <plugin>robotiq_hande_driver/RobotiqGripperHandeHardwareInterface</plugin>
+            <plugin>robotiq_driver_hande/RobotiqGripperHandeHardwareInterface</plugin>
             <param name="gripper_closed_position">0.059</param>
             <param name="COM_port">${com_port}</param>
             <param name="gripper_speed_multiplier">0.5</param>
