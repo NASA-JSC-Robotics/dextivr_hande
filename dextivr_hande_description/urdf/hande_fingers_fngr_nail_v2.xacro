@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="hande_fingers" params="
+    name:=''
+    prefix:=''">
+
+    <link name="${prefix}finger_1_link">
+      <visual>
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+          <geometry>
+            <mesh filename="package://dextivr_hande_description/meshes/hande_fngr_nail_v2.stl" />
+          </geometry>
+          <material name="${prefix}dark_gray"/>
+      </visual>
+      <collision>
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+          <geometry>
+            <mesh filename="package://dextivr_hande_description/meshes/hande_fngr_nail_v2.stl"/>
+          </geometry>
+          <material name="${prefix}dark_gray"/>
+      </collision>
+    </link>
+
+    <link name="${prefix}finger_2_link">
+      <visual>
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+          <geometry>
+            <mesh filename="package://dextivr_hande_description/meshes/hande_fngr_nail_v2.stl"/>
+          </geometry>
+          <material name="${prefix}dark_gray"/>
+      </visual>
+      <collision>
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+          <geometry>
+            <mesh filename="package://dextivr_hande_description/meshes/hande_fngr_nail_v2.stl"/>
+          </geometry>
+          <material name="${prefix}dark_gray"/>
+      </collision>
+    </link>
+
+    <joint name="${prefix}finger_1_joint" type="prismatic">
+      <origin rpy="${mount_roll} ${mount_pitch} ${mount_yaw}" xyz="${-mount_x} ${-mount_y} ${mount_z}"/>
+      <parent link="${prefix}gripper_base_link"/>
+      <child link="${prefix}finger_1_link"/>
+      <axis xyz="1 0 0"/>
+      <limit effort="130" lower="0" upper="0.025" velocity="0.15"/>
+    </joint>
+
+    <joint name="${prefix}finger_2_joint" type="prismatic">
+      <origin rpy="${mount_roll} ${mount_pitch} ${mount_yaw + pi}" xyz="${mount_x} ${mount_y} ${mount_z}"/>
+      <parent link="${prefix}gripper_base_link"/>
+      <child link="${prefix}finger_2_link"/>
+      <axis xyz="1 0 0"/>
+      <limit effort="130" lower="0" upper="0.025" velocity="0.15"/>
+      <mimic joint="${prefix}finger_1_joint" multiplier="1" offset="0"/>
+    </joint>
+
+  </xacro:macro>
+</robot>
