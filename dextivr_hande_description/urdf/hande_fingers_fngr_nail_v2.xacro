@@ -3,7 +3,14 @@
 
   <xacro:macro name="hande_fingers" params="
     name:=''
-    prefix:=''">
+    prefix:=''
+    mount_x:=0.0
+    mount_y:=0.0032
+    mount_z:=0.099
+    mount_roll:=${pi/2}
+    mount_pitch:=0.0
+    mount_yaw:=${pi}
+    scale:=0.001">
 
     <link name="${prefix}finger_1_link">
       <visual>
@@ -40,7 +47,7 @@
     </link>
 
     <joint name="${prefix}finger_1_joint" type="prismatic">
-      <origin rpy="${mount_roll} ${mount_pitch} ${mount_yaw}" xyz="${-mount_x} ${-mount_y} ${mount_z}"/>
+      <origin rpy="${mount_roll} ${mount_pitch} ${mount_yaw}" xyz="${mount_x} ${mount_y} ${mount_z}"/>
       <parent link="${prefix}gripper_base_link"/>
       <child link="${prefix}finger_1_link"/>
       <axis xyz="1 0 0"/>
@@ -48,7 +55,7 @@
     </joint>
 
     <joint name="${prefix}finger_2_joint" type="prismatic">
-      <origin rpy="${mount_roll} ${mount_pitch} ${mount_yaw + pi}" xyz="${mount_x} ${mount_y} ${mount_z}"/>
+      <origin rpy="${mount_roll} ${mount_pitch} ${mount_yaw + pi}" xyz="${mount_x} ${-mount_y} ${mount_z}"/>
       <parent link="${prefix}gripper_base_link"/>
       <child link="${prefix}finger_2_link"/>
       <axis xyz="1 0 0"/>
