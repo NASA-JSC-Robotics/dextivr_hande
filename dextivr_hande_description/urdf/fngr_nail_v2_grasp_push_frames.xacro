@@ -4,9 +4,9 @@
   <xacro:macro name="grasp_push_frames" params="
     name:=''
     prefix:=''
-    marker_opacity:=0.5
-    grasp_distance:=0.130
-    finger_length:=0.046
+    marker_opacity:=0.25
+    grasp_distance:=0.148
+    finger_length:=0.0605
     push_marker_size:=0.01">
 
     <link name="${prefix}grasp_frame">
@@ -41,7 +41,7 @@
     <joint name="${prefix}push_frame_1_joint" type="fixed">
       <parent link="${prefix}finger_1_link"/>
       <child link="${prefix}push_frame_1"/>
-      <origin xyz="0.0 ${finger_length} 0.0" rpy="0 0 0"/>
+      <origin xyz="0.0 ${finger_length} -0.003" rpy="0 0 0"/>
     </joint>
 
     <link name="${prefix}push_frame_2">
@@ -59,7 +59,7 @@
     <joint name="${prefix}push_frame_2_joint" type="fixed">
       <parent link="${prefix}finger_2_link"/>
       <child link="${prefix}push_frame_2"/>
-      <origin xyz="0.0 ${finger_length} 0.0" rpy="0 0 0"/>
+      <origin xyz="0.0 ${finger_length} -0.003" rpy="0 0 0"/>
     </joint>
 
   </xacro:macro>
