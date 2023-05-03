@@ -61,16 +61,16 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "name",
-            default_value='robotiq_gripper_hande',
+            default_value='dextivr_hande',
             description="Name of the robot. Gets used by ros2 control",
         )
     )
 
     description_pkg_share = launch_ros.substitutions.FindPackageShare(
-        package="robotiq_hande_description"
-    ).find("robotiq_hande_description")
+        package="dextivr_hande_description"
+    ).find("dextivr_hande_description")
     default_model_path = os.path.join(
-        description_pkg_share, "urdf", "robotiq_gripper_hande.urdf.xacro"
+        description_pkg_share, "urdf", "dextivr_hande.urdf.xacro"
     )
     default_rviz_config_path = os.path.join(
         description_pkg_share, "rviz", "visualization.rviz"

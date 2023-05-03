@@ -3,7 +3,7 @@
   <name>dextivr_hande_description</name>
   <version>0.0.1</version>
   <description>
-    3D models of the Hand-E gripper for simulation and visualization
+    3D models of the Hand-E gripper for simulation and visualization with ER4 specific meshes.
   </description>
   <maintainer email="andrew.p.sharp@nasa.gov">Andrew Sharp</maintainer>
 
@@ -12,7 +12,7 @@
   <buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
   <buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
 
-  <depend>robotiq_driver</depend>
+  <depend>robotiq_hande_description</depend>
 
   <exec_depend>joint_state_publisher_gui</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
@@ -22,7 +22,6 @@
   <exec_depend condition="$ROS_VERSION == 2">rviz2</exec_depend>
   <exec_depend condition="$ROS_VERSION == 2">launch</exec_depend>
   <exec_depend condition="$ROS_VERSION == 2">launch_ros</exec_depend>
-  <exec_depend condition="$ROS_VERSION == 2">robotiq_driver</exec_depend>
 
   <export>
     <build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>

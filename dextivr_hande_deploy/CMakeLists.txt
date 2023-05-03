@@ -6,7 +6,7 @@ find_package(ament_cmake)
 if(ament_cmake_FOUND)
 
   install(
-    DIRECTORY launch meshes rviz urdf
+    DIRECTORY launch rviz
     DESTINATION share/${PROJECT_NAME}
   )
 
@@ -18,7 +18,7 @@ else()
 
   find_package(catkin REQUIRED)
   catkin_package()
-  install(DIRECTORY launch meshes rviz urdf
+  install(DIRECTORY launch rviz
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
   )
 endif()
