@@ -15,6 +15,21 @@ import os
 def generate_launch_description():
     declared_arguments = []
 
+
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "com_port",
+            description="The communication port for the hardware interface.",
+            default_value="/dev/ttyUSB0"
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "finger_xacro",
+            description="The xacro for the desired gripper finger.",
+            default_value="fngr_nail_v2"
+        )
+    )
     declared_arguments.append(
         DeclareLaunchArgument(
             "use_fake_hardware",
@@ -69,6 +84,8 @@ def generate_launch_description():
     )
 
     # Initialize arguments
+    com_port = LaunchConfiguration("com_port")
+    finger_xacro = LaunchConfiguration("finger_xacro")
     use_fake_hardware = LaunchConfiguration("use_fake_hardware")
     prefix = LaunchConfiguration("prefix")
     name = LaunchConfiguration("name")
@@ -78,6 +95,8 @@ def generate_launch_description():
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
             PathJoinSubstitution([FindPackageShare("dextivr_hande_description"), "urdf", "dextivr_hande.urdf.xacro"]),
+            " ", "com_port:=", com_port,
+            " ", "finger_xacro:=", finger_xacro,
             " ", "use_fake_hardware:=", use_fake_hardware,
             " ", "prefix:=", prefix,
             " ", "name:=", name,
