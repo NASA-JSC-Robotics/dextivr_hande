@@ -15,7 +15,6 @@ import os
 def generate_launch_description():
     declared_arguments = []
 
-
     declared_arguments.append(
         DeclareLaunchArgument(
             "com_port",

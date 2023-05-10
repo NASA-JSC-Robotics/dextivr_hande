@@ -11,9 +11,6 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <depend>robotiq_driver</depend>
-  <depend>dextivr_hande_description</depend>
-
   <exec_depend>joint_state_publisher_gui</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
   <exec_depend>urdf</exec_depend>
@@ -21,6 +18,10 @@
   <exec_depend>rviz2</exec_depend>
   <exec_depend>launch</exec_depend>
   <exec_depend>launch_ros</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+
+  <exec_depend>robotiq_driver</exec_depend>
+  <exec_depend>dextivr_hande_description</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>
