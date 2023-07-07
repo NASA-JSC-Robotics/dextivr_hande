@@ -5,7 +5,7 @@
   <xacro:arg name="prefix" default="" />
   <xacro:arg name="use_fake_hardware" default="false" />
   <xacro:arg name="com_port" default="/dev/ttyACM0" />
-  <xacro:arg name="finger_xacro" default="fngr_nail_v2" />
+  <xacro:arg name="finger_xacro" default="fngr_nail_v2_m" />
 
   <xacro:property name="finger_type_prop" value="$(arg finger_xacro)" />
 
@@ -21,6 +21,11 @@
   <xacro:if value="${finger_type_prop == 'fngr_nail_v2'}">
     <xacro:include filename="$(find dextivr_hande_description)/urdf/hande_fingers_fngr_nail_v2.xacro"/>
     <xacro:include filename="$(find dextivr_hande_description)/urdf/fngr_nail_v2_grasp_push_frames.xacro"/>
+  </xacro:if>
+
+  <xacro:if value="${finger_type_prop == 'fngr_nail_v2_m'}">
+    <xacro:include filename="$(find dextivr_hande_description)/urdf/hande_fingers_v2_m.xacro"/>
+    <xacro:include filename="$(find dextivr_hande_description)/urdf/fngr_v2_m_grasp_push_frames.xacro"/>
   </xacro:if>
 
   <!--Run the xacros from the files included above-->
