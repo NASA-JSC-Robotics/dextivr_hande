@@ -7,7 +7,7 @@
     marker_opacity:=0.25
     grasp_distance:=${(170.350-8)/1000.0}
     finger_length:=0.0730250
-    push_marker_size:=0.01">
+    push_marker_size:=0.005">
 
     <link name="${tf_prefix}grasp_frame">
       <visual>
@@ -28,9 +28,9 @@
 
     <link name="${tf_prefix}push_frame_1">
       <visual>
-        <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+        <origin xyz="0.0 0.0 ${push_marker_size / 4}" rpy="0 0 0"/>
         <geometry>
-          <box size="${push_marker_size} ${push_marker_size} ${push_marker_size / 4}"/>
+          <box size="${push_marker_size} ${push_marker_size} ${push_marker_size / 2}"/>
         </geometry>
         <material name="${tf_prefix}_red">
           <color rgba="1.0 0 0 ${marker_opacity}"/>
@@ -46,9 +46,9 @@
 
     <link name="${tf_prefix}push_frame_2">
       <visual>
-        <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+        <origin xyz="0.0 0.0 ${push_marker_size / 4}" rpy="0 0 0"/>
         <geometry>
-          <box size="${push_marker_size} ${push_marker_size} ${push_marker_size / 4}"/>
+          <box size="${push_marker_size} ${push_marker_size} ${push_marker_size / 2}"/>
         </geometry>
         <material name="${tf_prefix}_red">
           <color rgba="1.0 0 0 ${marker_opacity}"/>
