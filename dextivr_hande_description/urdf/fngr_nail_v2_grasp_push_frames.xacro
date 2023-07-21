@@ -62,5 +62,23 @@
       <origin xyz="0.0 ${finger_length} -0.003" rpy="${-pi/2} 0 0"/>
     </joint>
 
+    <link name="${tf_prefix}center_push_frame">
+      <visual>
+        <origin xyz="0.0 0.0 ${push_marker_size / 8}" rpy="0 0 0"/>
+        <geometry>
+          <box size="${push_marker_size} ${push_marker_size} ${push_marker_size / 4}"/>
+        </geometry>
+        <material name="${tf_prefix}_red">
+          <color rgba="1.0 0 0 ${marker_opacity}"/>
+        </material>
+      </visual>
+    </link>
+
+    <joint name="${tf_prefix}center_push_frame_joint" type="fixed">
+      <parent link="${tf_prefix}gripper_palm_link"/>
+      <child link="${tf_prefix}center_push_frame"/>
+      <origin xyz="0.0 0.0 ${finger_length}" rpy="0 0 0"/>
+    </joint>
+
   </xacro:macro>
 </robot>
