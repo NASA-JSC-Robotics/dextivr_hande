@@ -18,7 +18,7 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "finger_xacro",
             description="The xacro for the desired gripper finger.",
-            default_value="fngr_v2_m"
+            default_value="fngr_nail_v2"
         )
     )
     declared_arguments.append(
