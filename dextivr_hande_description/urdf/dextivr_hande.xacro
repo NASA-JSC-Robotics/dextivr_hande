@@ -9,7 +9,8 @@
     *origin
     use_fake_hardware:=false
     fake_sensor_commands:=false
-    com_port:=/dev/ttyUSB0">
+    com_port:=/dev/ttyUSB0
+    marker_opacity:=0.5">
 
   <xacro:property name="finger_type_prop" value="$(arg finger_xacro)" />
 

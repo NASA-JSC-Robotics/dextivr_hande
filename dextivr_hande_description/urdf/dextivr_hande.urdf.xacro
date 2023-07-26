@@ -6,6 +6,7 @@
   <xacro:arg name="use_fake_hardware" default="false" />
   <xacro:arg name="com_port" default="/dev/ttyACM0" />
   <xacro:arg name="finger_xacro" default="fngr_v2_m" />
+  <xacro:arg name="marker_opacity" default="0.5" />
 
   <material name="$(arg tf_prefix)dark_gray">
     <color rgba="0.2 0.2 0.2 1"/>
@@ -13,6 +14,14 @@
 
   <material name="$(arg tf_prefix)black">
     <color rgba="0 0 0 1"/>
+  </material>
+
+  <material name="$(arg tf_prefix)red_marker">
+    <color rgba="1 0 0 $(arg marker_opacity)"/>
+  </material>
+
+  <material name="$(arg tf_prefix)green_marker">
+    <color rgba="0 1 0 $(arg marker_opacity)"/>
   </material>
 
   <xacro:property name="finger_type_prop" value="$(arg finger_xacro)" />

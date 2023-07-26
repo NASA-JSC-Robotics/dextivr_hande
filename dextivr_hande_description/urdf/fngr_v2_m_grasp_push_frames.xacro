@@ -14,9 +14,7 @@
         <geometry>
           <sphere radius="0.007"/>
         </geometry>
-        <material name="${tf_prefix}_green">
-          <color rgba="0 1.0 0 ${marker_opacity}"/>
-        </material>
+        <material name="${tf_prefix}green_marker"/>
       </visual>
     </link>
 
@@ -32,9 +30,7 @@
         <geometry>
           <box size="${push_marker_size} ${push_marker_size} ${push_marker_size / 2}"/>
         </geometry>
-        <material name="${tf_prefix}_red">
-          <color rgba="1.0 0 0 ${marker_opacity}"/>
-        </material>
+        <material name="${tf_prefix}red_marker"/>
       </visual>
     </link>
 
@@ -50,9 +46,7 @@
         <geometry>
           <box size="${push_marker_size} ${push_marker_size} ${push_marker_size / 2}"/>
         </geometry>
-        <material name="${tf_prefix}_red">
-          <color rgba="1.0 0 0 ${marker_opacity}"/>
-        </material>
+        <material name="${tf_prefix}red_marker"/>
       </visual>
     </link>
 
@@ -68,9 +62,7 @@
         <geometry>
           <box size="${push_marker_size} ${push_marker_size} ${push_marker_size / 2}"/>
         </geometry>
-        <material name="${tf_prefix}_red">
-          <color rgba="1.0 0 0 ${marker_opacity}"/>
-        </material>
+        <material name="${tf_prefix}red_marker"/>
       </visual>
     </link>
 
