@@ -40,7 +40,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "name",
-            default_value='robotiq_gripper_hande',
+            default_value='dextivr_hande',
             description="Name of the robot. Gets used by ros2 control",
         )
     )
