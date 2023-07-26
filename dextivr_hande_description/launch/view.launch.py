@@ -30,9 +30,9 @@ def generate_launch_description():
     )
     declared_arguments.append(
         DeclareLaunchArgument(
-            "prefix",
+            "tf_prefix",
             default_value="''",
-            description="Prefix of the joint names, useful for \
+            description="tf_prefix of the joint names, useful for \
                 multi-robot setup. If changed than also joint names in the controllers' configuration \
                 have to be updated.",
         )
@@ -49,7 +49,7 @@ def generate_launch_description():
     com_port = LaunchConfiguration("com_port")
     finger_xacro = LaunchConfiguration("finger_xacro")
     use_fake_hardware = LaunchConfiguration("use_fake_hardware")
-    prefix = LaunchConfiguration("prefix")
+    tf_prefix = LaunchConfiguration("tf_prefix")
     name = LaunchConfiguration("name")
 
     robot_description_content = Command(
@@ -60,7 +60,7 @@ def generate_launch_description():
             " ", "com_port:=", com_port,
             " ", "finger_xacro:=", finger_xacro,
             " ", "use_fake_hardware:=", use_fake_hardware,
-            " ", "prefix:=", prefix,
+            " ", "tf_prefix:=", tf_prefix,
             " ", "name:=", name,
         ]
     )
