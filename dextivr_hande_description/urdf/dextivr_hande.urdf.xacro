@@ -30,7 +30,7 @@
 
   <link name="world"/>
 
-  <xacro:dextivr_hande name="$(arg name)" tf_prefix="$(arg tf_prefix)" parent="world" use_fake_hardware="$(arg use_fake_hardware)" com_port="$(arg com_port)">
+  <xacro:dextivr_hande name="$(arg name)" tf_prefix="$(arg tf_prefix)" parent="world" use_fake_hardware="$(arg use_fake_hardware)" com_port="$(arg com_port)" finger_xacro="$(arg finger_xacro)">
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </xacro:dextivr_hande>
 
