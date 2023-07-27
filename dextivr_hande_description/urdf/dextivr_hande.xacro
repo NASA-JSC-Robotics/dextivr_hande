@@ -16,7 +16,7 @@
   <xacro:include filename="$(find robotiq_hande_description)/urdf/robotiq_hande.xacro"/>
 
   <xacro:robotiq_hande name="${name}" tf_prefix="${tf_prefix}" parent="${parent}" use_fake_hardware="${use_fake_hardware}" com_port="${com_port}">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <xacro:insert_block name="origin"/>
   </xacro:robotiq_hande>
 
   <!--If statements for the various types of gripper fingers-->
