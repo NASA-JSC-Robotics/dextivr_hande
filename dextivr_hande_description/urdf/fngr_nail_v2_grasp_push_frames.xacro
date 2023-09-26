@@ -14,9 +14,7 @@
         <geometry>
           <sphere radius="0.007"/>
         </geometry>
-        <material name="${tf_prefix}_green">
-          <color rgba="0 1.0 0 ${marker_opacity}"/>
-        </material>
+        <material name="${tf_prefix}green_marker"/>
       </visual>
     </link>
 
@@ -32,9 +30,7 @@
         <geometry>
           <box size="${push_marker_size} ${push_marker_size} ${push_marker_size / 4}"/>
         </geometry>
-        <material name="${tf_prefix}_red">
-          <color rgba="1.0 0 0 ${marker_opacity}"/>
-        </material>
+        <material name="${tf_prefix}red_marker"/>
       </visual>
     </link>
 
@@ -50,9 +46,7 @@
         <geometry>
           <box size="${push_marker_size} ${push_marker_size} ${push_marker_size / 4}"/>
         </geometry>
-        <material name="${tf_prefix}_red">
-          <color rgba="1.0 0 0 ${marker_opacity}"/>
-        </material>
+        <material name="${tf_prefix}red_marker"/>
       </visual>
     </link>
 
@@ -60,6 +54,22 @@
       <parent link="${tf_prefix}finger_2_link"/>
       <child link="${tf_prefix}push_frame_2"/>
       <origin xyz="0.0 ${finger_length} -0.003" rpy="${-pi/2} 0 0"/>
+    </joint>
+
+    <link name="${tf_prefix}center_push_frame">
+      <visual>
+        <origin xyz="0.0 0.0 ${push_marker_size / 8}" rpy="0 0 0"/>
+        <geometry>
+          <box size="${push_marker_size} ${push_marker_size} ${push_marker_size / 4}"/>
+        </geometry>
+        <material name="${tf_prefix}red_marker"/>
+      </visual>
+    </link>
+
+    <joint name="${tf_prefix}center_push_frame_joint" type="fixed">
+      <parent link="${tf_prefix}gripper_palm_link"/>
+      <child link="${tf_prefix}center_push_frame"/>
+      <origin xyz="0.0 0.0 ${finger_length}" rpy="0 0 0"/>
     </joint>
 
   </xacro:macro>
