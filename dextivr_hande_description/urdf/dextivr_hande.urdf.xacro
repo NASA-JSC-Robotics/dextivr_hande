@@ -5,7 +5,7 @@
   <xacro:arg name="tf_prefix" default="" />
   <xacro:arg name="use_fake_hardware" default="false" />
   <xacro:arg name="com_port" default="/dev/ttyACM0" />
-  <xacro:arg name="finger_xacro" default="fngr_v2_m" />
+  <xacro:arg name="finger_xacro" default="fngr_v6" />
   <xacro:arg name="marker_opacity" default="0.5" />
 
   <material name="$(arg tf_prefix)dark_gray">

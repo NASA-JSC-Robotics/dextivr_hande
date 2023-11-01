@@ -11,7 +11,7 @@
     fake_sensor_commands:=false
     com_port:=/dev/ttyUSB0
     marker_opacity:=0.5
-    finger_xacro:=fngr_v2_m">
+    finger_xacro:=fngr_v6">
 
   <xacro:include filename="$(find robotiq_hande_description)/urdf/robotiq_hande.xacro"/>
 
@@ -27,6 +27,11 @@
 
   <xacro:if value="${finger_xacro == 'fngr_v2_m'}">
     <xacro:include filename="$(find dextivr_hande_description)/urdf/hande_fingers_v2_m.xacro"/>
+    <xacro:include filename="$(find dextivr_hande_description)/urdf/fngr_v2_m_grasp_push_frames.xacro"/>
+  </xacro:if>
+
+  <xacro:if value="${finger_xacro == 'fngr_v6'}">
+    <xacro:include filename="$(find dextivr_hande_description)/urdf/hande_fingers_v6.xacro"/>
     <xacro:include filename="$(find dextivr_hande_description)/urdf/fngr_v2_m_grasp_push_frames.xacro"/>
   </xacro:if>
 
