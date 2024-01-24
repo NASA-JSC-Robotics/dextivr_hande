@@ -36,8 +36,8 @@
   </xacro:if>
 
   <!--Run the xacros from the files included above-->
-  <xacro:hande_fingers name="${name}" tf_prefix="${tf_prefix}"/>
-  <xacro:grasp_push_frames name="${name}" tf_prefix="${tf_prefix}"/>
+  <xacro:hande_fingers name="${name}" tf_prefix="${tf_prefix}" />
+  <xacro:grasp_push_frames name="${name}" tf_prefix="${tf_prefix}" marker_opacity="${marker_opacity}"/>
 
   </xacro:macro>
 </robot>
