@@ -13,6 +13,10 @@
     mount_yaw:=${radians(0)}
     scale:=0.001">
 
+    <material name="${tf_prefix}hande_fingers_v2_m_dark_gray">
+      <color rgba="0.2 0.2 0.2 1"/>
+    </material>
+
     <link name="${tf_prefix}finger_1_link">
       <!--TODO set proper inertia-->
       <inertial>
@@ -25,14 +29,14 @@
           <geometry>
             <mesh filename="package://dextivr_hande_description/meshes/visual/imetro_finger_v2_m_vis.dae" />
           </geometry>
-          <material name="${tf_prefix}dark_gray"/>
+          <material name="${tf_prefix}hande_fingers_v2_m_dark_gray"/>
       </visual>
       <collision>
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
             <mesh filename="package://dextivr_hande_description/meshes/collision/imetro_finger_v2_m_col.dae"/>
           </geometry>
-          <material name="${tf_prefix}dark_gray"/>
+          <material name="${tf_prefix}hande_fingers_v2_m_dark_gray"/>
       </collision>
     </link>
 
@@ -48,14 +52,14 @@
           <geometry>
             <mesh filename="package://dextivr_hande_description/meshes/visual/imetro_finger_v2_m_vis.dae" />
           </geometry>
-          <material name="${tf_prefix}dark_gray"/>
+          <material name="${tf_prefix}hande_fingers_v2_m_dark_gray"/>
       </visual>
       <collision>
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
             <mesh filename="package://dextivr_hande_description/meshes/collision/imetro_finger_v2_m_col.dae"/>
           </geometry>
-          <material name="${tf_prefix}dark_gray"/>
+          <material name="${tf_prefix}hande_fingers_v2_m_dark_gray"/>
       </collision>
     </link>
 
