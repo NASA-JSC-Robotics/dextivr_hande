@@ -13,9 +13,9 @@
     mount_yaw:=${radians(0)}
     scale:=0.001">
 
-    <material name="${tf_prefix}hande_fingers_v2_m_dark_gray">
+    <material name="${tf_prefix}hande_fingers_v6_dark_gray">
       <color rgba="0.2 0.2 0.2 1"/>
-    </material>
+    </material>  
 
     <link name="${tf_prefix}finger_1_link">
       <!--TODO set proper inertia-->
@@ -27,16 +27,16 @@
       <visual>
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://dextivr_hande_description/meshes/visual/imetro_finger_v2_m_vis.dae" />
+            <mesh filename="package://dextivr_hande_description/meshes/visual/finger_v6.stl" />
           </geometry>
-          <material name="${tf_prefix}hande_fingers_v2_m_dark_gray"/>
+          <material name="${tf_prefix}hande_fingers_v6_dark_gray"/>
       </visual>
       <collision>
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://dextivr_hande_description/meshes/collision/imetro_finger_v2_m_col.dae"/>
+            <mesh filename="package://dextivr_hande_description/meshes/collision/finger_v6.stl"/>
           </geometry>
-          <material name="${tf_prefix}hande_fingers_v2_m_dark_gray"/>
+          <material name="${tf_prefix}hande_fingers_v6_dark_gray"/>
       </collision>
     </link>
 
@@ -50,16 +50,16 @@
       <visual>
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://dextivr_hande_description/meshes/visual/imetro_finger_v2_m_vis.dae" />
+            <mesh filename="package://dextivr_hande_description/meshes/visual/finger_v6.stl" />
           </geometry>
-          <material name="${tf_prefix}hande_fingers_v2_m_dark_gray"/>
+          <material name="${tf_prefix}hande_fingers_v6_dark_gray"/>
       </visual>
       <collision>
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://dextivr_hande_description/meshes/collision/imetro_finger_v2_m_col.dae"/>
+            <mesh filename="package://dextivr_hande_description/meshes/collision/finger_v6.stl"/>
           </geometry>
-          <material name="${tf_prefix}hande_fingers_v2_m_dark_gray"/>
+          <material name="${tf_prefix}hande_fingers_v6_dark_gray"/>
       </collision>
     </link>
 

@@ -9,12 +9,20 @@
     finger_length:=0.0730250
     push_marker_size:=0.005">
 
+    <material name="${tf_prefix}fngr_v2_m_grasp_push_frames_red_marker">
+      <color rgba="1.0 0 0 ${marker_opacity}"/>
+    </material>
+
+    <material name="${tf_prefix}fngr_v2_m_grasp_push_frames_green_marker">
+      <color rgba="0 1.0 0 ${marker_opacity}"/>
+    </material>
+
     <link name="${tf_prefix}grasp_frame">
       <visual>
         <geometry>
           <sphere radius="0.007"/>
         </geometry>
-        <material name="${tf_prefix}green_marker"/>
+        <material name="${tf_prefix}fngr_v2_m_grasp_push_frames_green_marker"/>
       </visual>
     </link>
 
@@ -30,7 +38,7 @@
         <geometry>
           <box size="${push_marker_size} ${push_marker_size} ${push_marker_size / 2}"/>
         </geometry>
-        <material name="${tf_prefix}red_marker"/>
+        <material name="${tf_prefix}fngr_v2_m_grasp_push_frames_red_marker"/>
       </visual>
     </link>
 
@@ -46,7 +54,7 @@
         <geometry>
           <box size="${push_marker_size} ${push_marker_size} ${push_marker_size / 2}"/>
         </geometry>
-        <material name="${tf_prefix}red_marker"/>
+        <material name="${tf_prefix}fngr_v2_m_grasp_push_frames_red_marker"/>        
       </visual>
     </link>
 
@@ -62,7 +70,7 @@
         <geometry>
           <box size="${push_marker_size} ${push_marker_size} ${push_marker_size / 2}"/>
         </geometry>
-        <material name="${tf_prefix}red_marker"/>
+        <material name="${tf_prefix}fngr_v2_m_grasp_push_frames_red_marker"/>
       </visual>
     </link>
 

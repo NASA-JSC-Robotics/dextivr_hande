@@ -12,6 +12,10 @@
     mount_yaw:=${pi}
     scale:=0.001">
 
+    <material name="${tf_prefix}hande_fingers_fngr_nail_v2_dark_gray">
+      <color rgba="0.2 0.2 0.2 1"/>
+    </material>
+
     <link name="${tf_prefix}finger_1_link">
       <!--TODO set proper inertia-->
       <inertial>
@@ -24,14 +28,14 @@
           <geometry>
             <mesh filename="package://dextivr_hande_description/meshes/visual/hande_fngr_nail_v2.stl" />
           </geometry>
-          <material name="${tf_prefix}dark_gray"/>
+          <material name="${tf_prefix}hande_fingers_fngr_nail_v2_dark_gray"/>
       </visual>
       <collision>
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
             <mesh filename="package://dextivr_hande_description/meshes/collision/hande_fngr_nail_v2.stl"/>
           </geometry>
-          <material name="${tf_prefix}dark_gray"/>
+          <material name="${tf_prefix}hande_fingers_fngr_nail_v2_dark_gray"/>
       </collision>
     </link>
 
@@ -47,14 +51,14 @@
           <geometry>
             <mesh filename="package://dextivr_hande_description/meshes/visual/hande_fngr_nail_v2.stl"/>
           </geometry>
-          <material name="${tf_prefix}dark_gray"/>
+          <material name="${tf_prefix}hande_fingers_fngr_nail_v2_dark_gray"/>
       </visual>
       <collision>
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
             <mesh filename="package://dextivr_hande_description/meshes/collision/hande_fngr_nail_v2.stl"/>
           </geometry>
-          <material name="${tf_prefix}dark_gray"/>
+          <material name="${tf_prefix}hande_fingers_fngr_nail_v2_dark_gray"/>
       </collision>
     </link>
 

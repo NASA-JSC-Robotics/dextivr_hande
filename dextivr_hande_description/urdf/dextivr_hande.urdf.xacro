@@ -5,24 +5,8 @@
   <xacro:arg name="tf_prefix" default="" />
   <xacro:arg name="use_fake_hardware" default="false" />
   <xacro:arg name="com_port" default="/dev/ttyACM0" />
-  <xacro:arg name="finger_xacro" default="fngr_v2_m" />
-  <xacro:arg name="marker_opacity" default="0.5" />
-
-  <material name="$(arg tf_prefix)dark_gray">
-    <color rgba="0.2 0.2 0.2 1"/>
-  </material>
-
-  <material name="$(arg tf_prefix)black">
-    <color rgba="0 0 0 1"/>
-  </material>
-
-  <material name="$(arg tf_prefix)red_marker">
-    <color rgba="1 0 0 $(arg marker_opacity)"/>
-  </material>
-
-  <material name="$(arg tf_prefix)green_marker">
-    <color rgba="0 1 0 $(arg marker_opacity)"/>
-  </material>
+  <xacro:arg name="finger_xacro" default="fngr_v6" />
+  <xacro:arg name="marker_opacity" default="0.1" />
 
   <xacro:property name="finger_type_prop" value="$(arg finger_xacro)" />
 
@@ -30,7 +14,14 @@
 
   <link name="world"/>
 
-  <xacro:dextivr_hande name="$(arg name)" tf_prefix="$(arg tf_prefix)" parent="world" use_fake_hardware="$(arg use_fake_hardware)" com_port="$(arg com_port)" finger_xacro="$(arg finger_xacro)">
+  <xacro:dextivr_hande
+    name="$(arg name)" 
+    tf_prefix="$(arg tf_prefix)" 
+    parent="world" 
+    use_fake_hardware="$(arg use_fake_hardware)" 
+    com_port="$(arg com_port)" 
+    finger_xacro="$(arg finger_xacro)" 
+    marker_opacity="$(arg marker_opacity)">
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </xacro:dextivr_hande>
 
