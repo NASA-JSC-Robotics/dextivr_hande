@@ -7,6 +7,7 @@ from launch.substitutions import (
     PathJoinSubstitution,
 )
 from launch.actions import DeclareLaunchArgument
+from launch.conditions import IfCondition
 import launch_ros
 from launch_ros.substitutions import FindPackageShare
 import os
@@ -82,12 +83,21 @@ def generate_launch_description():
         )
     )
 
+    declared_arguments.append(
+        launch.actions.DeclareLaunchArgument(
+            name="launch_rviz",
+            default_value="True",
+            description="launch rviz2",
+        )
+    )
+
     # Initialize arguments
     com_port = LaunchConfiguration("com_port")
     finger_xacro = LaunchConfiguration("finger_xacro")
     use_fake_hardware = LaunchConfiguration("use_fake_hardware")
     tf_prefix = LaunchConfiguration("tf_prefix")
     name = LaunchConfiguration("name")
+    launch_rviz = LaunchConfiguration("launch_rviz")
 
     robot_description_content = Command(
         [
@@ -154,6 +164,7 @@ def generate_launch_description():
         executable="rviz2",
         name="rviz2",
         output="log",
+        condition = IfCondition(launch_rviz),
         arguments=["-d", LaunchConfiguration("rvizconfig")],
     )
 
