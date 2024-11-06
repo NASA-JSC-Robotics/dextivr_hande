@@ -4,28 +4,23 @@ from launch.substitutions import Command, FindExecutable, LaunchConfiguration, P
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
+
 def generate_launch_description():
     declared_arguments = []
 
     declared_arguments.append(
         DeclareLaunchArgument(
-            "com_port",
-            description="The communication port for the hardware interface.",
-            default_value="/dev/ttyUSB0"
+            "com_port", description="The communication port for the hardware interface.", default_value="/dev/ttyUSB0"
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
-            "finger_xacro",
-            description="The xacro for the desired gripper finger.",
-            default_value="fngr_v6"
+            "finger_xacro", description="The xacro for the desired gripper finger.", default_value="fngr_v6"
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
-            "use_fake_hardware",
-            description="Run with ros2 control fake hardware interface",
-            default_value="false"
+            "use_fake_hardware", description="Run with ros2 control fake hardware interface", default_value="false"
         )
     )
     declared_arguments.append(
@@ -40,7 +35,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "name",
-            default_value='dextivr_hande',
+            default_value="dextivr_hande",
             description="Name of the robot. Gets used by ros2 control",
         )
     )
@@ -57,11 +52,21 @@ def generate_launch_description():
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
             PathJoinSubstitution([FindPackageShare("dextivr_hande_description"), "urdf", "dextivr_hande.urdf.xacro"]),
-            " ", "com_port:=", com_port,
-            " ", "finger_xacro:=", finger_xacro,
-            " ", "use_fake_hardware:=", use_fake_hardware,
-            " ", "tf_prefix:=", tf_prefix,
-            " ", "name:=", name,
+            " ",
+            "com_port:=",
+            com_port,
+            " ",
+            "finger_xacro:=",
+            finger_xacro,
+            " ",
+            "use_fake_hardware:=",
+            use_fake_hardware,
+            " ",
+            "tf_prefix:=",
+            tf_prefix,
+            " ",
+            "name:=",
+            name,
         ]
     )
 
@@ -79,7 +84,7 @@ def generate_launch_description():
         package="robot_state_publisher",
         executable="robot_state_publisher",
         output="both",
-        parameters=[robot_description]
+        parameters=[robot_description],
     )
     rviz_node = Node(
         package="rviz2",
