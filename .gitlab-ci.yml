@@ -15,4 +15,3 @@ pre-commit-check:
     - if: '$CI_COMMIT_BRANCH == "humble" || $CI_COMMIT_BRANCH == "jazzy" || $CI_COMMIT_BRANCH =~ /.*-devel$/'
       when: always
     - when: never
-
