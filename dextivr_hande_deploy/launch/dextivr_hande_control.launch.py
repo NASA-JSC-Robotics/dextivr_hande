@@ -1,4 +1,3 @@
-
 import launch
 from launch.substitutions import (
     Command,
@@ -18,23 +17,17 @@ def generate_launch_description():
 
     declared_arguments.append(
         DeclareLaunchArgument(
-            "com_port",
-            description="The communication port for the hardware interface.",
-            default_value="/dev/ttyUSB0"
+            "com_port", description="The communication port for the hardware interface.", default_value="/dev/ttyUSB0"
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
-            "finger_xacro",
-            description="The xacro for the desired gripper finger.",
-            default_value="fngr_nail_v2"
+            "finger_xacro", description="The xacro for the desired gripper finger.", default_value="fngr_nail_v2"
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
-            "use_fake_hardware",
-            description="Run with ros2 control fake hardware interface",
-            default_value="false"
+            "use_fake_hardware", description="Run with ros2 control fake hardware interface", default_value="false"
         )
     )
     declared_arguments.append(
@@ -49,24 +42,18 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "name",
-            default_value='dextivr_hande',
+            default_value="dextivr_hande",
             description="Name of the robot. Gets used by ros2 control",
         )
     )
 
-    description_pkg_share = launch_ros.substitutions.FindPackageShare(
-        package="dextivr_hande_description"
-    ).find("dextivr_hande_description")
-    default_model_path = os.path.join(
-        description_pkg_share, "urdf", "dextivr_hande.urdf.xacro"
+    description_pkg_share = launch_ros.substitutions.FindPackageShare(package="dextivr_hande_description").find(
+        "dextivr_hande_description"
     )
-    default_rviz_config_path = os.path.join(
-        description_pkg_share, "rviz", "visualization.rviz"
-    )
+    default_model_path = os.path.join(description_pkg_share, "urdf", "dextivr_hande.urdf.xacro")
+    default_rviz_config_path = os.path.join(description_pkg_share, "rviz", "visualization.rviz")
 
-    pkg_share = launch_ros.substitutions.FindPackageShare(
-        package="robotiq_driver"
-    ).find("robotiq_driver")
+    pkg_share = launch_ros.substitutions.FindPackageShare(package="robotiq_driver").find("robotiq_driver")
 
     declared_arguments.append(
         launch.actions.DeclareLaunchArgument(
@@ -104,23 +91,29 @@ def generate_launch_description():
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
             PathJoinSubstitution([FindPackageShare("dextivr_hande_description"), "urdf", "dextivr_hande.urdf.xacro"]),
-            " ", "com_port:=", com_port,
-            " ", "finger_xacro:=", finger_xacro,
-            " ", "use_fake_hardware:=", use_fake_hardware,
-            " ", "tf_prefix:=", tf_prefix,
-            " ", "name:=", name,
+            " ",
+            "com_port:=",
+            com_port,
+            " ",
+            "finger_xacro:=",
+            finger_xacro,
+            " ",
+            "use_fake_hardware:=",
+            use_fake_hardware,
+            " ",
+            "tf_prefix:=",
+            tf_prefix,
+            " ",
+            "name:=",
+            name,
         ]
     )
     robot_description_param = {
-        "robot_description": launch_ros.parameter_descriptions.ParameterValue(
-            robot_description_content, value_type=str
-        )
+        "robot_description": launch_ros.parameter_descriptions.ParameterValue(robot_description_content, value_type=str)
     }
 
     controllers_file = "robotiq_hande_controllers.yaml"
-    initial_joint_controllers = PathJoinSubstitution(
-        [pkg_share, "config", controllers_file]
-    )
+    initial_joint_controllers = PathJoinSubstitution([pkg_share, "config", controllers_file])
 
     control_node = launch_ros.actions.Node(
         package="controller_manager",
@@ -152,19 +145,19 @@ def generate_launch_description():
         executable="spawner",
         arguments=["robotiq_activation_controller", "-c", "/controller_manager"],
     )
-    
+
     robotiq_gripper_controller_spawner = launch_ros.actions.Node(
         package="controller_manager",
         executable="spawner",
         arguments=["robotiq_gripper_hande_controller", "-c", "/controller_manager"],
-    ) 
-    
+    )
+
     rviz_node = launch_ros.actions.Node(
         package="rviz2",
         executable="rviz2",
         name="rviz2",
         output="log",
-        condition = IfCondition(launch_rviz),
+        condition=IfCondition(launch_rviz),
         arguments=["-d", LaunchConfiguration("rvizconfig")],
     )
 

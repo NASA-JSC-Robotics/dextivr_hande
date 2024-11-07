@@ -54,7 +54,7 @@
         <geometry>
           <box size="${push_marker_size} ${push_marker_size} ${push_marker_size / 2}"/>
         </geometry>
-        <material name="${tf_prefix}fngr_v2_m_grasp_push_frames_red_marker"/>        
+        <material name="${tf_prefix}fngr_v2_m_grasp_push_frames_red_marker"/>
       </visual>
     </link>
 
