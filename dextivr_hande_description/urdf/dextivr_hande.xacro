@@ -12,7 +12,8 @@
     fake_sensor_commands:=false
     com_port:=/dev/ttyUSB0
     marker_opacity:=0.5
-    finger_xacro:=fngr_v6">
+    finger_xacro:=fngr_v6
+    generate_ros2_control_tag:=true">
 
   <!-- if ignition or gazebo - need to use absolute paths instead of relative, applies locally -->
   <xacro:property name="force_abs_paths" value="${sim_ignition}" />
@@ -26,7 +27,8 @@
     parent="${parent}"
     sim_ignition="${sim_ignition}"
     use_fake_hardware="${use_fake_hardware}"
-    com_port="${com_port}">
+    com_port="${com_port}"
+    generate_ros2_control_tag="${generate_ros2_control_tag}">
     <xacro:insert_block name="origin"/>
   </xacro:robotiq_hande>
 
