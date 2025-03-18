@@ -26,14 +26,20 @@
       <visual>
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://dextivr_hande_description/meshes/visual/finger_v6.stl" />
+            <xacro:gen_mesh
+              force_abs_path="${force_abs_paths}"
+              pkg_name="dextivr_hande_description"
+              file_path="meshes/visual/finger_v6.stl" />
           </geometry>
           <material name="${tf_prefix}hande_fingers_v6_dark_gray"/>
       </visual>
       <collision>
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://dextivr_hande_description/meshes/collision/finger_v6.stl"/>
+            <xacro:gen_mesh
+              force_abs_path="${force_abs_paths}"
+              pkg_name="dextivr_hande_description"
+              file_path="meshes/collision/finger_v6.stl" />
           </geometry>
           <material name="${tf_prefix}hande_fingers_v6_dark_gray"/>
       </collision>
@@ -48,14 +54,20 @@
       <visual>
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://dextivr_hande_description/meshes/visual/finger_v6.stl" />
+            <xacro:gen_mesh
+              force_abs_path="${force_abs_paths}"
+              pkg_name="dextivr_hande_description"
+              file_path="meshes/visual/finger_v6.stl" />
           </geometry>
           <material name="${tf_prefix}hande_fingers_v6_dark_gray"/>
       </visual>
       <collision>
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://dextivr_hande_description/meshes/collision/finger_v6.stl"/>
+            <xacro:gen_mesh
+              force_abs_path="${force_abs_paths}"
+              pkg_name="dextivr_hande_description"
+              file_path="meshes/collision/finger_v6.stl" />
           </geometry>
           <material name="${tf_prefix}hande_fingers_v6_dark_gray"/>
       </collision>
