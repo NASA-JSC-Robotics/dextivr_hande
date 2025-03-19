@@ -4,7 +4,7 @@ project(dextivr_hande_deploy)
 find_package(ament_cmake REQUIRED)
 
   install(
-    DIRECTORY launch rviz config
+    DIRECTORY launch rviz
     DESTINATION share/${PROJECT_NAME}
   )
 
