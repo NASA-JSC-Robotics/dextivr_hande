@@ -40,7 +40,6 @@
     </link>
 
     <link name="${tf_prefix}finger_2_link">
-      <!--TODO set proper inertia-->
       <inertial>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
         <mass value="0.050019846"/>
