@@ -11,7 +11,7 @@
     mount_roll:=${radians(0)}
     mount_pitch:=${radians(0)}
     mount_yaw:=${radians(0)}
-    scale:=0.001">s
+    scale:=0.001">
 
     <material name="${tf_prefix}hande_fingers_v6_dark_gray">
       <color rgba="0.2 0.2 0.2 1"/>
