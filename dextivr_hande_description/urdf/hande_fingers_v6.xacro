@@ -18,11 +18,10 @@
     </material>
 
     <link name="${tf_prefix}finger_1_link">
-      <!--TODO set proper inertia-->
       <inertial>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
-        <mass value="0.0"/>
-        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        <mass value="0.050019846"/>
+        <inertia ixx="0.000060226393" ixy="-0.0000009852757" ixz="-0.00000994007986" iyy="0.000062464751" iyz="-0.0000028146120" izz="0.0000079760530"/>
       </inertial>
       <visual>
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
@@ -41,11 +40,10 @@
     </link>
 
     <link name="${tf_prefix}finger_2_link">
-      <!--TODO set proper inertia-->
       <inertial>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
-        <mass value="0.0"/>
-        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        <mass value="0.050019846"/>
+        <inertia ixx="0.000060226393" ixy="-0.0000009852757" ixz="-0.00000994007986" iyy="0.000062464751" iyz="-0.0000028146120" izz="0.0000079760530"/>
       </inertial>
       <visual>
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
