@@ -53,7 +53,9 @@ def generate_launch_description():
     default_model_path = os.path.join(description_pkg_share, "urdf", "dextivr_hande.urdf.xacro")
     default_rviz_config_path = os.path.join(description_pkg_share, "rviz", "visualization.rviz")
 
-    pkg_share = launch_ros.substitutions.FindPackageShare(package="robotiq_driver").find("robotiq_driver")
+    pkg_share = launch_ros.substitutions.FindPackageShare(package="robotiq_hande_description").find(
+        "robotiq_hande_description"
+    )
 
     declared_arguments.append(
         launch.actions.DeclareLaunchArgument(
