@@ -27,7 +27,10 @@
       <visual>
           <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://dextivr_hande_description/meshes/visual/imetro_finger_v2_m_vis.dae" />
+            <xacro:gen_mesh
+              force_abs_path="${force_abs_paths}"
+              pkg_name="dextivr_hande_description"
+              file_path="meshes/visual/imetro_finger_v2_m_vis.dae" />
           </geometry>
           <material name="${tf_prefix}hande_fingers_v2_m_dark_gray"/>
       </visual>

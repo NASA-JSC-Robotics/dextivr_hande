@@ -7,15 +7,26 @@
     tf_prefix
     parent
     *origin
+    sim_ignition:=false
     use_fake_hardware:=false
     fake_sensor_commands:=false
     com_port:=/dev/ttyUSB0
     marker_opacity:=0.5
     finger_xacro:=fngr_v6">
 
-  <xacro:include filename="$(find robotiq_hande_description)/urdf/robotiq_hande.xacro"/>
+  <!-- if ignition or gazebo - need to use absolute paths instead of relative, applies locally -->
+  <xacro:property name="force_abs_paths" value="$(arg sim_ignition)" />
 
-  <xacro:robotiq_hande name="${name}" tf_prefix="${tf_prefix}" parent="${parent}" use_fake_hardware="${use_fake_hardware}" com_port="${com_port}">
+  <xacro:include filename="$(find robotiq_hande_description)/urdf/robotiq_hande.xacro"/>
+  <xacro:include filename="$(find robotiq_hande_description)/urdf/gen_mesh.xacro"/>
+
+  <xacro:robotiq_hande
+    name="${name}"
+    tf_prefix="${tf_prefix}"
+    parent="${parent}"
+    sim_ignition="${sim_ignition}"
+    use_fake_hardware="${use_fake_hardware}"
+    com_port="${com_port}">
     <xacro:insert_block name="origin"/>
   </xacro:robotiq_hande>
 
