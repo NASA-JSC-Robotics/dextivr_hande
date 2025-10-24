@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!--Scaled from mm to m-->
+  <xacro:macro name="hande_fingers" params="
+    name:=''
+    tf_prefix:=''
+    mount_x:=${(2.01401+9.0) * 0.001}
+    mount_y:=${-3.25000 * 0.001}
+    mount_z:=${100.500 * 0.001}
+    mount_roll:=${radians(0)}
+    mount_pitch:=${radians(0)}
+    mount_yaw:=${radians(0)}
+    scale:=0.001">
+    <!-- mount_x:=${2.01401 * 0.001}
+    mount_y:=${-3.25000 * 0.001} -->
+
+    <material name="${tf_prefix}hande_fingers_v6_dark_gray">
+      <color rgba="0.2 0.2 0.2 1"/>
+    </material>
+
+    <link name="${tf_prefix}finger_1_link">
+      <inertial>
+        <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+        <mass value="0.050019846"/>
+        <inertia ixx="0.000060226393" ixy="-0.0000009852757" ixz="-0.00000994007986" iyy="0.000062464751" iyz="-0.0000028146120" izz="0.0000079760530"/>
+      </inertial>
+      <visual>
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+          <geometry>
+            <xacro:gen_mesh
+              force_abs_path="${force_abs_paths}"
+              pkg_name="dextivr_hande_description"
+              file_path="meshes/visual/finger_v6.stl" />
+          </geometry>
+          <material name="${tf_prefix}hande_fingers_v6_dark_gray"/>
+      </visual>
+      <collision>
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+          <geometry>
+            <xacro:gen_mesh
+              force_abs_path="${force_abs_paths}"
+              pkg_name="dextivr_hande_description"
+              file_path="meshes/collision/finger_v6.stl" />
+          </geometry>
+          <material name="${tf_prefix}hande_fingers_v6_dark_gray"/>
+      </collision>
+    </link>
+
+    <link name="${tf_prefix}finger_2_link">
+      <inertial>
+        <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+        <mass value="0.050019846"/>
+        <inertia ixx="0.000060226393" ixy="-0.0000009852757" ixz="-0.00000994007986" iyy="0.000062464751" iyz="-0.0000028146120" izz="0.0000079760530"/>
+      </inertial>
+      <visual>
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+          <geometry>
+            <xacro:gen_mesh
+              force_abs_path="${force_abs_paths}"
+              pkg_name="dextivr_hande_description"
+              file_path="meshes/visual/finger_v6.stl" />
+          </geometry>
+          <material name="${tf_prefix}hande_fingers_v6_dark_gray"/>
+      </visual>
+      <collision>
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+          <geometry>
+            <xacro:gen_mesh
+              force_abs_path="${force_abs_paths}"
+              pkg_name="dextivr_hande_description"
+              file_path="meshes/collision/finger_v6.stl" />
+          </geometry>
+          <material name="${tf_prefix}hande_fingers_v6_dark_gray"/>
+      </collision>
+    </link>
+
+    <joint name="${tf_prefix}finger_1_joint" type="prismatic">
+      <origin rpy="${mount_roll} ${mount_pitch} ${mount_yaw}" xyz="${mount_x} ${mount_y} ${mount_z}"/>
+      <parent link="${tf_prefix}gripper_base_link"/>
+      <child link="${tf_prefix}finger_1_link"/>
+      <axis xyz="1 0 0"/>
+      <limit effort="130" lower="0" upper="0.025" velocity="0.15"/>
+    </joint>
+
+    <joint name="${tf_prefix}finger_2_joint" type="prismatic">
+      <origin rpy="${mount_roll} ${mount_pitch} ${mount_yaw + pi}" xyz="${-mount_x} ${-mount_y} ${mount_z}"/>
+      <parent link="${tf_prefix}gripper_base_link"/>
+      <child link="${tf_prefix}finger_2_link"/>
+      <axis xyz="1 0 0"/>
+      <limit effort="130" lower="0" upper="0.025" velocity="0.15"/>
+      <mimic joint="${tf_prefix}finger_1_joint" multiplier="1" offset="0"/>
+    </joint>
+
+  </xacro:macro>
+</robot>
