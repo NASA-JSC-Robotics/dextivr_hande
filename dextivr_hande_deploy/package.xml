@@ -5,7 +5,7 @@
   <description>
     Deplyoy files for the  Hand-E gripper with ER4 specific hardware
   </description>
-  <maintainer email="andrew.p.sharp@nasa.gov">Andrew Sharp</maintainer>
+  <maintainer email="michael.e.tobia@nasa.gov">Michael Tobia</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
