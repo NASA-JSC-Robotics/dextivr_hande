@@ -42,6 +42,22 @@
       </visual>
     </link>
 
+    <link name="${tf_prefix}grasp_link">
+      <visual>
+        <geometry>
+          <sphere radius="0.007"/>
+        </geometry>
+        <material name="${tf_prefix}fngr_nail_v2_grasp_push_frames_green_marker"/>
+      </visual>
+    </link>
+    
+    <joint name="${tf_prefix}grasp_link_joint" type="fixed">
+      <parent link="${tf_prefix}gripper_base_link"/>
+      <child link="${tf_prefix}grasp_link"/>
+      <origin xyz="0.0 0.0 ${grasp_distance}" rpy="0 0 0"/>
+    </joint>
+
+
     <joint name="${tf_prefix}push_frame_1_joint" type="fixed">
       <parent link="${tf_prefix}finger_1_link"/>
       <child link="${tf_prefix}push_frame_1"/>
