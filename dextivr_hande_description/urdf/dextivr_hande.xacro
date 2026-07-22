@@ -13,6 +13,8 @@
     com_port:=/dev/ttyUSB0
     marker_opacity:=0.5
     finger_xacro:=fngr_v6
+    custom_xacro_include_path:=''
+    custom_xacro_frames_include_path:=''
     add_grasp_push_frames:=true
     generate_ros2_control_tag:=true">
 
@@ -36,22 +38,64 @@
   <!--If statements for the various types of gripper fingers-->
   <xacro:if value="${finger_xacro == 'fngr_original'}">
     <xacro:include filename="$(find robotiq_hande_description)/urdf/hande_fingers.xacro"/>
-    <xacro:include filename="$(find robotiq_hande_description)/urdf/grasp_push_frames.xacro"/>
+    <xacro:if value="${add_grasp_push_frames}">
+      <xacro:include filename="$(find robotiq_hande_description)/urdf/grasp_push_frames.xacro"/>
+     </xacro:if>
   </xacro:if>
 
   <xacro:if value="${finger_xacro == 'fngr_nail_v2'}">
     <xacro:include filename="$(find dextivr_hande_description)/urdf/hande_fingers_fngr_nail_v2.xacro"/>
-    <xacro:include filename="$(find dextivr_hande_description)/urdf/fngr_nail_v2_grasp_push_frames.xacro"/>
+    <xacro:if value="${add_grasp_push_frames}">
+      <xacro:include filename="$(find dextivr_hande_description)/urdf/fngr_nail_v2_grasp_push_frames.xacro"/>
+    </xacro:if>
   </xacro:if>
 
   <xacro:if value="${finger_xacro == 'fngr_v2_m'}">
     <xacro:include filename="$(find dextivr_hande_description)/urdf/hande_fingers_v2_m.xacro"/>
-    <xacro:include filename="$(find dextivr_hande_description)/urdf/fngr_v2_m_grasp_push_frames.xacro"/>
+    <xacro:if value="${add_grasp_push_frames}">
+      <xacro:include filename="$(find dextivr_hande_description)/urdf/fngr_v2_m_grasp_push_frames.xacro"/>
+    </xacro:if>
   </xacro:if>
 
   <xacro:if value="${finger_xacro == 'fngr_v6'}">
     <xacro:include filename="$(find dextivr_hande_description)/urdf/hande_fingers_v6.xacro"/>
-    <xacro:include filename="$(find dextivr_hande_description)/urdf/fngr_v2_m_grasp_push_frames.xacro"/>
+    <xacro:if value="${add_grasp_push_frames}">
+      <xacro:include filename="$(find dextivr_hande_description)/urdf/fngr_v2_m_grasp_push_frames.xacro"/>
+    </xacro:if>
+  </xacro:if>
+
+  <!--
+    Custom fingers require the `custom_xacro_include_path` and (optionally) `custom_xacro_frames_include_path`
+    variables to be defined. These must implement `hande_fingers` and `grasp_push_frames` macros, respectively.
+  -->
+  <xacro:if value="${finger_xacro == 'custom'}">
+    <!--
+      Validate that `custom_xacro_include_path` is non-empty.
+      Note that these "errors" are actually invalid syntax, but they still give the user useful signal for debugging.
+    -->
+    <xacro:if value="${custom_xacro_include_path == ''}">
+      <xacro:property name="validated_custom_xacro_include_path"
+                      value="${raise(ValueError('ERROR: custom_xacro_include_path argument must be specified if using custom fingers!'))}" />
+    </xacro:if>
+    <xacro:unless value="${custom_xacro_include_path == ''}">
+      <xacro:property name="validated_custom_xacro_include_path" value="${custom_xacro_include_path}" />
+    </xacro:unless>
+    <xacro:include filename="${validated_custom_xacro_include_path}"/>
+
+    <!--
+      Validate that `custom_xacro_frames_include_path` is non-empty _if_ `grasp_push_frames` is enabled.
+      Note that these "errors" are actually invalid syntax, but they still give the user useful signal for debugging.
+    -->
+    <xacro:if value="${add_grasp_push_frames}">
+      <xacro:if value="${custom_xacro_frames_include_path == ''}">
+        <xacro:property name="validated_custom_xacro_frames_include_path"
+                        value="${raise ValueError('ERROR: custom_xacro_frames_include_path argument must be specified if using custom fingers and adding grasp frames!'))}" />
+      </xacro:if>
+      <xacro:unless value="${custom_xacro_frames_include_path == ''}">
+        <xacro:property name="validated_custom_xacro_frames_include_path" value="${custom_xacro_frames_include_path}" />
+      </xacro:unless>
+      <xacro:include filename="${validated_custom_xacro_frames_include_path}"/>
+    </xacro:if>
   </xacro:if>
 
   <!--Run the xacros from the files included above-->
