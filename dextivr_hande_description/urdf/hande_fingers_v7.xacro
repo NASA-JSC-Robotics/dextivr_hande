@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="hande_fingers" params="
+    name:=''
+    tf_prefix:=''
+    mount_x:=${2.01401 * 0.001}
+    mount_y:=${-3.25000 * 0.001}
+    mount_z:=${100.500 * 0.001}
+    mount_roll:=${radians(0)}
+    mount_pitch:=${radians(0)}
+    mount_yaw:=${radians(0)}
+    ">
+
+    <material name="${tf_prefix}hande_fingers_v7_dark_gray">
+      <color rgba="0.2 0.2 0.2 1"/>
+    </material>
+
+    <xacro:macro name="v7_finger" params="
+    number:=''
+    tf_prefix:=''
+    ">
+      <link name="${tf_prefix}finger_${number}_link">
+        <inertial>
+          <origin rpy="0 0 0" xyz="6.597e-03 2.901e-02 -2.119e-04"/>
+          <mass value="2.35e-02"/>
+          <inertia ixx="1.199e-05" ixy="1.223e-07" ixz="3.898e-07" iyy="2.506e-06" iyz="1.377e-06" izz="1.191e-05"/>
+        </inertial>
+        <visual>
+          <geometry>
+            <mesh filename="package://dextivr_hande_description/meshes/visual/v7_finger.stl"/>
+          </geometry>
+          <material name="${tf_prefix}hande_fingers_v7_dark_gray"/>
+        </visual>
+        <collision>
+          <geometry>
+            <mesh filename="package://dextivr_hande_description/meshes/visual/v7_finger.stl"/>
+          </geometry>
+          <material name="${tf_prefix}hande_fingers_v7_dark_gray"/>
+        </collision>
+      </link>
+    </xacro:macro>
+
+    <xacro:v7_finger tf_prefix="${tf_prefix}" number="1"/>
+    <xacro:v7_finger tf_prefix="${tf_prefix}" number="2"/>
+
+    <joint name="${tf_prefix}finger_1_joint" type="prismatic">
+      <origin rpy="${mount_roll} ${mount_pitch} ${mount_yaw}" xyz="${mount_x} ${mount_y} ${mount_z}"/>
+      <parent link="${tf_prefix}gripper_base_link"/>
+      <child link="${tf_prefix}finger_1_link"/>
+      <axis xyz="1 0 0"/>
+      <limit effort="185" lower="0" upper="0.025" velocity="0.15"/>
+    </joint>
+
+    <joint name="${tf_prefix}finger_2_joint" type="prismatic">
+      <origin rpy="${mount_roll} ${mount_pitch} ${mount_yaw + pi}" xyz="${-mount_x} ${-mount_y} ${mount_z}"/>
+      <parent link="${tf_prefix}gripper_base_link"/>
+      <child link="${tf_prefix}finger_2_link"/>
+      <axis xyz="1 0 0"/>
+      <limit effort="185" lower="0" upper="0.025" velocity="0.15"/>
+      <mimic joint="${tf_prefix}finger_1_joint" multiplier="1" offset="0"/>
+    </joint>
+
+  </xacro:macro>
+</robot>

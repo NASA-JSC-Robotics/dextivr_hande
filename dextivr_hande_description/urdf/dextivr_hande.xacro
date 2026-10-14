@@ -64,6 +64,13 @@
     </xacro:if>
   </xacro:if>
 
+  <xacro:if value="${finger_xacro == 'fngr_v7'}">
+    <xacro:include filename="$(find dextivr_hande_description)/urdf/hande_fingers_v7.xacro"/>
+    <xacro:if value="${add_grasp_push_frames}">
+      <xacro:include filename="$(find dextivr_hande_description)/urdf/fngr_v2_m_grasp_push_frames.xacro"/>
+    </xacro:if>
+  </xacro:if>
+
   <!--
     Custom fingers require the `custom_xacro_include_path` and (optionally) `custom_xacro_frames_include_path`
     variables to be defined. These must implement `hande_fingers` and `grasp_push_frames` macros, respectively.
