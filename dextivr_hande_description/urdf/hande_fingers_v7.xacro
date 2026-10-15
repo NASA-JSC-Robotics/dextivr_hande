@@ -62,4 +62,53 @@
     </joint>
 
   </xacro:macro>
+
+  <xacro:macro name="hande_fingers_mujoco_processed_inputs" params="
+    tf_prefix=''
+  ">
+    <xacro:macro name="decompose_finger_collisions" params="
+      tf_prefix=''
+      number=''
+      ">
+      <replace_collision link="${tf_prefix}finger_${number}_link" stage="urdf">
+        <collision>
+          <geometry>
+            <mesh filename="package://dextivr_hande_description/meshes/collision/v7/v7_finger_decomp_1.stl"/>
+          </geometry>
+        </collision>
+        <collision>
+          <geometry>
+            <mesh filename="package://dextivr_hande_description/meshes/collision/v7/v7_finger_decomp_2.stl"/>
+          </geometry>
+        </collision>
+        <collision>
+          <geometry>
+            <mesh filename="package://dextivr_hande_description/meshes/collision/v7/v7_finger_decomp_3.stl"/>
+          </geometry>
+        </collision>
+        <collision>
+          <geometry>
+            <mesh filename="package://dextivr_hande_description/meshes/collision/v7/v7_finger_decomp_4.stl"/>
+          </geometry>
+        </collision>
+        <collision>
+          <geometry>
+            <mesh filename="package://dextivr_hande_description/meshes/collision/v7/v7_finger_decomp_5.stl"/>
+          </geometry>
+        </collision>
+        <collision>
+          <geometry>
+            <mesh filename="package://dextivr_hande_description/meshes/collision/v7/v7_finger_decomp_6.stl"/>
+          </geometry>
+        </collision>
+        <collision>
+          <geometry>
+            <mesh filename="package://dextivr_hande_description/meshes/collision/v7/v7_finger_decomp_7.stl"/>
+          </geometry>
+        </collision>
+      </replace_collision>
+    </xacro:macro>
+    <xacro:decompose_finger_collisions tf_prefix="${tf_prefix}" number="1"/>
+    <xacro:decompose_finger_collisions tf_prefix="${tf_prefix}" number="2"/>
+  </xacro:macro>
 </robot>
