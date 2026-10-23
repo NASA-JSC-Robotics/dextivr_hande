@@ -112,4 +112,15 @@
   </xacro:if>
 
   </xacro:macro>
+  <xacro:macro name="hande_gripper_base_link_mujoco_collision_mesh" params="
+    tf_prefix=''
+  ">
+    <replace_collision link="${tf_prefix}gripper_base_link" stage="urdf">
+      <collision>
+        <geometry>
+          <mesh filename="package://robotiq_hande_description/meshes/visual/hande.dae" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </replace_collision>
+  </xacro:macro>
 </robot>
