@@ -46,7 +46,7 @@ def generate_launch_description():
     )
     declared_arguments.append(
         DeclareLaunchArgument(
-            "use_fake_hardware", description="Run with ros2 control fake hardware interface", default_value="false"
+            "use_mock_hardware", description="Run with ros2 control fake hardware interface", default_value="false"
         )
     )
     declared_arguments.append(
@@ -102,7 +102,7 @@ def generate_launch_description():
     # Initialize arguments
     com_port = LaunchConfiguration("com_port")
     finger_xacro = LaunchConfiguration("finger_xacro")
-    use_fake_hardware = LaunchConfiguration("use_fake_hardware")
+    use_mock_hardware = LaunchConfiguration("use_mock_hardware")
     tf_prefix = LaunchConfiguration("tf_prefix")
     name = LaunchConfiguration("name")
     launch_rviz = LaunchConfiguration("launch_rviz")
@@ -119,8 +119,8 @@ def generate_launch_description():
             "finger_xacro:=",
             finger_xacro,
             " ",
-            "use_fake_hardware:=",
-            use_fake_hardware,
+            "use_mock_hardware:=",
+            use_mock_hardware,
             " ",
             "tf_prefix:=",
             tf_prefix,

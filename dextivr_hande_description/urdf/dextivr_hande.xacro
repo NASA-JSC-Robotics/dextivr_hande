@@ -8,7 +8,7 @@
     parent
     *origin
     sim_ignition:=false
-    use_fake_hardware:=false
+    use_mock_hardware:=false
     fake_sensor_commands:=false
     com_port:=/dev/ttyUSB0
     marker_opacity:=0.5
@@ -27,7 +27,7 @@
     tf_prefix="${tf_prefix}"
     parent="${parent}"
     sim_ignition="${sim_ignition}"
-    use_fake_hardware="${use_fake_hardware}"
+    use_mock_hardware="${use_mock_hardware}"
     com_port="${com_port}"
     generate_ros2_control_tag="${generate_ros2_control_tag}">
     <xacro:insert_block name="origin"/>
